@@ -16,6 +16,7 @@ public class Q3 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
+        //declaration
         int parcelsProcessed = 0;
         double totalFees = 0;
         int heaviestWeight = 0;
@@ -28,15 +29,16 @@ public class Q3 {
                 break;
             }
 
+            //regular expression to check
             String pattern = "\\d{2}x\\d{2}x\\d{2}";
             String patternPostcode = "\\d{5}";
 
+            //postcode normalisation
             String postCodeE = postCode.toUpperCase().replaceAll("[\\s-]|MY", "");
             if (postCodeE.length() < 2) {
                 System.out.println("Error: Invalid postcode. Parcel skipped.\n");
                 continue;
             }
-
             char first = postCodeE.charAt(0);
             char second = postCodeE.charAt(1);
             int firstTwo = (first - '0') * 10 + (second - '0');
@@ -52,6 +54,7 @@ public class Q3 {
                 continue;
             }
 
+            //weight
             int weightGrams = 0;
             while (true) {
                 System.out.print("Enter parcel weight (g): ");
